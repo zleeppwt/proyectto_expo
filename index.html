@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mental y Bienestar Emocional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            500: '#64748b',
+                            600: '#475569',
+                            900: '#0f172a',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link.active {
+            color: #0f172a;
+            font-weight: 600;
+            border-bottom: 2px solid #0f172a;
+        }
+        /* Ocultar secciones por defecto */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .content-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card-white {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.03);
+            border-radius: 1.5rem;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-brand-600 selection:bg-brand-100 selection:text-brand-900">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="showSection('inicio')">
+                    <svg class="w-6 h-6 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    <span class="font-semibold text-lg tracking-tight text-brand-900 hidden sm:block">Espacio Mental</span>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="showSection('inicio')" id="nav-inicio" class="nav-link active text-sm text-brand-500 hover:text-brand-900 py-2">Inicio</button>
+                    <button onclick="showSection('abc')" id="nav-abc" class="nav-link text-sm text-brand-500 hover:text-brand-900 py-2">ABC Emociones</button>
+                    <button onclick="showSection('tips')" id="nav-tips" class="nav-link text-sm text-brand-500 hover:text-brand-900 py-2">Tips y Aliento</button>
+                    <button onclick="showSection('directorio')" id="nav-directorio" class="nav-link text-sm text-brand-500 hover:text-brand-900 py-2">Directorio</button>
+                    <button onclick="showSection('ubicacion')" id="nav-ubicacion" class="nav-link text-sm text-brand-500 hover:text-brand-900 py-2">Ubicación</button>
+                    <button onclick="showSection('creadores')" id="nav-creadores" class="nav-link text-sm text-brand-500 hover:text-brand-900 py-2">Creadores.pagina</button>
+                </div>
+
+                <div class="md:hidden flex overflow-x-auto space-x-4 pb-2 w-full ml-4 scrollbar-hide">
+                    <button onclick="showSection('inicio')" id="nav-inicio-mob" class="nav-link active whitespace-nowrap text-sm text-brand-500 py-1">Inicio</button>
+                    <button onclick="showSection('abc')" id="nav-abc-mob" class="nav-link whitespace-nowrap text-sm text-brand-500 py-1">ABC Emociones</button>
+                    <button onclick="showSection('tips')" id="nav-tips-mob" class="nav-link whitespace-nowrap text-sm text-brand-500 py-1">Tips y Aliento</button>
+                    <button onclick="showSection('directorio')" id="nav-directorio-mob" class="nav-link whitespace-nowrap text-sm text-brand-500 py-1">Directorio</button>
+                    <button onclick="showSection('ubicacion')" id="nav-ubicacion-mob" class="nav-link whitespace-nowrap text-sm text-brand-500 py-1">Ubicación</button>
+                    <button onclick="showSection('creadores')" id="nav-creadores" class="nav-link text-sm text-brand-500 hover:text-brand-900 py-2">Creadores.pagina</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 min-h-screen">
+
+        <section id="inicio" class="content-section active">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Informacion</span>
+                <h1 class="mt-3 text-4xl md:text-5xl font-bold text-brand-900 tracking-tight">SALUD MENTAL ¿QUE ES?</h1>
+                <p class="mt-6 text-lg text-brand-600 max-w-2xl mx-auto leading-relaxed">
+                    Un espacio dedicado a comprender, gestionar y abrazar nuestro mundo interior.
+                </p>
+            </div>
+
+            <div class="card-white p-8 md:p-12">
+                <h2 class="text-2xl font-semibold text-brand-900 mb-6">Comprendiendo la Salud Mental</h2>
+                <div class="space-y-6 text-brand-600 leading-relaxed">
+                    <p>
+                        La salud mental incluye nuestro bienestar emocional, psicológico y social. Afecta la forma en que pensamos, sentimos y actuamos cuando enfrentamos la vida. También ayuda a determinar cómo manejamos el estrés, nos relacionamos con los demás y tomamos decisiones.
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Todo que tenga que ver con emociones:</strong> Las emociones son reacciones psicofisiológicas que todos experimentamos a diario (alegría, tristeza, miedo, ira, asco). Son brújulas que nos indican cómo nos relacionamos con nuestro entorno. Validar y entender nuestras emociones es el primer paso hacia una buena salud mental. No existen emociones "malas", solo emociones desagradables que cumplen una función vital de protección y adaptación.
+                    </p>
+                    <p>
+                        Este concepto general se debe concretizar mediante la observación detallada del comportamiento de la persona en su vida diaria. La observación es una de las principales fuentes de información para conocer el estado de la salud mental en múltiples aspectos de la vida, como son, por ejemplo, el manejo de conflictos, resolución de problemas prácticos, competencias (efectivas, sociales e intelectuales), modo de asumir las responsabilidades, la adecuada manutención de las propias necesidades, la forma en que afronta sus propias tensiones, la riqueza y profundidad de sus relaciones interpersonales y la manera en que dirige su vida independiente. En todo caso, el acento estaría puesto en la salud de la persona antes que en sus deficiencias y enfermedades
+                    </p>
+                    <br>
+                    <p>
+                        Es importante destacar que las enfermedades mentales no están relacionadas con disminución de la función intelectual de las personas. De hecho, algunas personas con enfermedades mentales pueden tener una inteligencia y un funcionamiento cognitivo normal o superior a la media. Sin embargo, es cierto que algunos trastornos mentales pueden afectar la capacidad de una persona para concentrarse, procesar información o tomar decisiones, lo que puede interferir en su desempeño cognitivo.Es esencial cuidar la salud mental mediante actividades como meditación, ejercicio, alimentación saludable, sueño adecuado y comunicación con seres queridos.
+                    </p>
+                    <br>
+                    <h2 class="text-2xl font-semibold text-brand-900 mb-6">Importacia de la salud mental</h2>
+                    <p>
+                        La salud mental se relaciona con el raciocinio, las emociones y el comportamiento frente a diferentes situaciones de la vida cotidiana. También ayuda a determinar cómo manejar el estrés, convivir con otras personas y tomar decisiones importantes. Al igual que otras formas de salud, la salud mental es importante en todas las etapas de la vida, desde la niñez y la adolescencia hasta la edad adulta y la madurez.
+                    </p>
+                    <div class="bg-brand-50 p-6 rounded-2xl border border-brand-100 mt-8">
+                        <h3 class="text-lg font-medium text-brand-900 mb-2">¿Por qué es importante?</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Ayuda a enfrentar el estrés de la vida.</li>
+                            <li>Permite estar físicamente saludable (mente y cuerpo están conectados).</li>
+                            <li>Mejora la calidad de nuestras relaciones.</li>
+                            <li>Nos permite trabajar productivamente y alcanzar nuestro potencial.</li>
+                            <li>Mejor bienestar general.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </section>
+
+        <section id="abc" class="content-section">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Psicología Práctica</span>
+                <h1 class="mt-3 text-4xl md:text-5xl font-bold text-brand-900 tracking-tight">CAMPAÑA ABC DE LAS EMOCIONES</h1>
+                <p class="mt-6 text-lg text-brand-600 max-w-2xl mx-auto leading-relaxed">
+                    El modelo cognitivo de Albert Ellis para entender cómo nuestros pensamientos influyen en cómo nos sentimos.
+                </p>
+            </div>
+            <br>
+            <br>
+
+            <p>
+                Video del gobierno de Mexico del ABC de las emciones
+            </p>
+            <div class="flex flex-col md:flex-row gap-8 items-center bg-[#fcfcfc] p-6 rounded-2xl shadow-sm border border-gray-100 my-8">
+
+                
+                <div class="w-full md:w-1/2">
+                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/N7THVpC0L6Y?si=jGHUFtdBBQK-JQd7" 
+                            title="Bienvenida a la página" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+                <p class="text-slate-600 leading-relaxed text-justify md:text-left">
+                    Este video trata de:
+                </p>
+                <p class="text-slate-600 leading-relaxed text-justify md:text-left">
+                    El propósito de la Estrategia Nacional es atender la salud mental y el bienestar socioemocional de las y los jóvenes entre 14 y 18 años. Su enfoque es preventivo, comunitario y territorial. La salud mental no puede abordarse exclusivamente desde la atención clínica, por lo cual la Estrategia despliega diversas líneas de acción con una perspectiva integral, manteniendo en las escuelas (tercero de secundaria y bachillerato) el principal espacio de intervención y participación colectiva de las y los jóvenes, docentes y familias.
+                </p>
+            </div>
+
+</div>
+
+            <div class="card-white p-8 md:p-12">
+                <p class="text-brand-600 mb-10 text-center text-lg">
+                    El modelo ABC postula que no son los eventos en sí mismos los que nos perturban, sino <strong>la interpretación</strong> que hacemos de ellos.
+                </p>
+                <br>
+                <p>
+                    El modelo ABC de las emociones (desarrollado por el psicólogo Albert Ellis como base de la Terapia Racional Emotiva Conductual) explica cómo nuestras interpretaciones de la realidad generan nuestras emociones y comportamientos. Su premisa fundamental es que no son las situaciones externas las que nos causan malestar o alegría, sino lo que pensamos e interpretamos sobre ellas.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="relative pt-6">
+                        <div class="absolute top-0 left-0 text-6xl font-black text-gray-100/80 -z-10 transform -translate-y-4 -translate-x-2">A</div>
+                        <h3 class="text-xl font-bold text-brand-900 mb-3 border-b-2 border-brand-100 pb-2 inline-block">Acontecimiento</h3>
+                        <p class="text-brand-600 text-sm leading-relaxed">
+                            Es la situación real y objetiva que ocurre. El evento activador o la adversidad que enfrentamos. 
+                            <br><br><span class="italic text-gray-400">Ejemplo: "No me saludó al pasar."</span>
+                        </p>
+                    </div>
+
+                    <div class="relative pt-6">
+                        <div class="absolute top-0 left-0 text-6xl font-black text-gray-100/80 -z-10 transform -translate-y-4 -translate-x-2">B</div>
+                        <h3 class="text-xl font-bold text-brand-900 mb-3 border-b-2 border-brand-100 pb-2 inline-block">Creencias (Beliefs)</h3>
+                        <p class="text-brand-600 text-sm leading-relaxed">
+                            on los pensamientos, interpretaciones, valoraciones y diálogos internos que surgen inmediatamente al percibir el acontecimiento (A). Estas creencias pueden ser racionales (lógicas y flexibles) o irracionales (exageradas, rígidas y catastróficas).
+                            <br><br><span class="italic text-gray-400">Ejemplo: "Seguro está enojado conmigo, algo hice mal."</span>
+                            <br><br><span class="italic text-gray-400">Ejemplo irracional: "Seguro me van a despedir, hice algo terrible".</span>
+                            <br><br><span class="italic text-gray-400">Ejemplo racional: "Probablemente quiere revisar el proyecto de ayer".</span>
+                        </p>
+                    </div>
+
+                    <div class="relative pt-6">
+                        <div class="absolute top-0 left-0 text-6xl font-black text-gray-100/80 -z-10 transform -translate-y-4 -translate-x-2">C</div>
+                        <h3 class="text-xl font-bold text-brand-900 mb-3 border-b-2 border-brand-100 pb-2 inline-block">Consecuencias</h3>
+                        <p class="text-brand-600 text-sm leading-relaxed">
+                            Es cómo nos sentimos (consecuencia emocional) y cómo actuamos (consecuencia conductual) debido a.
+                            <br><br><span class="italic text-gray-400">Ejemplo: Siento ansiedad (emoción) y lo evito el resto del día (conducta).</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="content-section">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Herramientas</span>
+                <h1 class="mt-3 text-4xl md:text-5xl font-bold text-brand-900 tracking-tight">TIPS Y PALABRAS DE ALIENTO</h1>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-white p-8">
+                    <h2 class="text-2xl font-semibold text-brand-900 mb-6 flex items-center gap-2">
+                        
+                        TIPS PARA TRANQUILIZARSE
+                    </h2>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-900 font-bold text-sm">1</div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Respiración 4-7-8</h4>
+                                <p class="text-sm text-brand-500 mt-1">Inhala por la nariz por 4 segundos, sostén la respiración 7 segundos y exhala lentamente por la boca durante 8 segundos. Repite 4 veces.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-900 font-bold text-sm">2</div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Contacto con la realidad (5-4-3-2-1)</h4>
+                                <p class="text-sm text-brand-500 mt-1">Busca 5 cosas que puedas ver, 4 que puedas tocar, 3 que puedas escuchar, 2 que puedas oler y 1 que puedas saborear. Ancla tu mente al presente.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-900 font-bold text-sm">3</div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Agua fría</h4>
+                                <p class="text-sm text-brand-500 mt-1">Lávate la cara con agua fría o sostén un hielo. El cambio drástico de temperatura ayuda a reiniciar el sistema nervioso en momentos de pánico.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-900 font-bold text-sm">4</div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Ve con una persona que te escuche y comprenda</h4>
+                                <p class="text-sm text-brand-500 mt-1">Algunas veces lo que realmente se necesita en esos momentos no es solamente tranquilizarse solo, si no que tambien es saber que no estas solo en lo que estas viviendo.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center text-brand-900 font-bold text-sm">5</div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Sal a caminar o a pasear</h4>
+                                <p class="text-sm text-brand-500 mt-1">Sal de tu casa, sal de ese momento en el que estes para mirar el paisaje para relajarte y liberar tu mente de esa burbuja de malas experiencias.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-white p-8 flex flex-col justify-center bg-brand-50/30">
+                    <h2 class="text-2xl font-semibold text-brand-900 mb-8 flex items-center gap-2">
+                        PALABRAS DE ALIENTO
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"Está bien no estar bien siempre. Date permiso para sentir, sin juzgarte."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"La vulnerabilidad es el lugar donde nacen la innovación, la creatividad y el cambio."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"Cuando ya no podemos cambiar una situación, tenemos el reto de cambiarnos a nosotros mismos."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"Tu valor como persona no disminuye por los días difíciles que enfrentas."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"Respira. Has superado el 100% de tus peores días hasta ahora. Eres más fuerte de lo que crees."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"El progreso no es lineal. Celebrar los pequeños pasos es fundamental."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"No pienses que eres una mala persona por experiencias pasadas, cambia tu futuro para no cometer los mismos errores."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"Sigue luchando por tus metas y deseos."</p>
+                        </blockquote>
+                        <blockquote class="border-l-4 border-brand-900 pl-4 py-1">
+                            <p class="text-sm text-brand-500 mt-1">"Vive tu vida como tu quieras y con tus propias deciciones la vida solo es una, vivela como quieres."</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="directorio" class="content-section">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Apoyo Profesional</span>
+                <h1 class="mt-3 text-4xl md:text-5xl font-bold text-brand-900 tracking-tight">DIRECTORIO DE ESPECIALISTAS</h1>
+                <p class="mt-6 text-lg text-brand-600 max-w-2xl mx-auto leading-relaxed">
+                    Contactos de psicólogos y terapeutas en Zapotiltic, Guadalajara y Ciudad Guzmán, Jalisco.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Dr. Alexis Robles</h3>
+                            <p class="text-sm text-brand-500">Psiquiatra Especialista</p>
+                        </div>
+                        <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full font-medium">Guadalajara</span>
+                    </div>
+                    <p class="text-sm text-brand-600 mb-6 flex-grow">Es uno de los psiquiatras más reconocidos en la ciudad, con una gran cantidad de excelentes valoraciones por parte de sus pacientes.</p>
+                    <div class="border-t border-gray-100 pt-4 mt-auto">
+                        <p class="text-sm text-gray-500 mb-1 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 33 3816 1187</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-brand-600 mb-6 flex-grow">Ubicacion del Psiquiatra</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.6876563268825!2d-103.39726360000002!3d20.6822826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af9c612a632d%3A0x509c1215332f2ab6!2sDr.%20Alexis%20Robles%20%E2%80%93%20Psiquiatra!5e0!3m2!1ses-419!2smx!4v1795318884303!5m2!1ses-419!2smx" width="320" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Dra. Laura Ramírez Gómez</h3>
+                            <p class="text-sm text-brand-500">Psiquiatra</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">Ciudad Guzmán</span>
+                    </div>
+                    <p class="text-sm text-brand-600 mb-6 flex-grow">Es psiquiatra con enfoque también en psiquiatría infantil y de la adolescencia.</p>
+                    <div class="border-t border-gray-100 pt-4 mt-auto">
+                        <p class="text-sm text-gray-500 mb-1 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 341 412 7730</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-brand-600 mb-6 flex-grow">Ubicacion del Psiquiatra</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3755.8264369799845!2d-103.46641132499255!3d19.720012181621367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f86b28a1c4703%3A0xc3c191f25aec8ee8!2sC.%20Miguel%20Hidalgo%20Y%20Costilla%20771%2C%20Centro%2C%2049000%20Cdad.%20Guzm%C3%A1n%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1795318449275!5m2!1ses-419!2smx" width="320" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Mtra. Elena Gómez</h3>
+                            <p class="text-sm text-brand-500">Psicóloga Clínica</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">Ciudad Guzmán</span>
+                    </div>
+                    <p class="text-sm text-brand-600 mb-6 flex-grow">Terapia individual, familiar y de pareja. Enfoque humanista y centrada en soluciones.</p>
+                    <div class="border-t border-gray-100 pt-4 mt-auto">
+                        <p class="text-sm text-gray-500 mb-1 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> (341) 412-3456</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-brand-600 mb-6 flex-grow">Ubicacion del Psiquiatra</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.1697939411574!2d-103.46843822499311!3d19.705393981632973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f86bb80e2f3e1%3A0xaabacb88dbd9a43d!2sRefugio%20Barrag%C3%A1n%20de%20Toscano%2082%2C%20Cd%20Guzm%C3%A1n%20Centro%2C%2049000%20Cdad.%20Guzm%C3%A1n%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1795317637226!5m2!1ses-419!2smx" width="320" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Dr. Victor Manuel Vaca Cortés</h3>
+                            <p class="text-sm text-brand-500">Psiquiatra</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">Ciudad Guzmán</span>
+                    </div>
+                    <p class="text-sm text-brand-600 mb-6 flex-grow">Es un especialista muy bien valorado en la zona centro de la ciudad.</p>
+                    <div class="border-t border-gray-100 pt-4 mt-auto">
+                        <p class="text-sm text-gray-500 mb-1 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 341 412 3175</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-brand-600 mb-6 flex-grow">Ubicacion del Psiquiatra</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.1697939411574!2d-103.46843822499311!3d19.705393981632973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f86bb80e2f3e1%3A0xaabacb88dbd9a43d!2sRefugio%20Barrag%C3%A1n%20de%20Toscano%2082%2C%20Cd%20Guzm%C3%A1n%20Centro%2C%2049000%20Cdad.%20Guzm%C3%A1n%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1795317637226!5m2!1ses-419!2smx" width="320" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Dr. David Parra</h3>
+                            <p class="text-sm text-brand-500">Psiquiatra</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">Ciudad Guzmán</span>
+                    </div>
+                    <p class="text-sm text-brand-600 mb-6 flex-grow">Salud mental comunitaria.</p>
+                    <div class="border-t border-gray-100 pt-4 mt-auto">
+                        <p class="text-sm text-gray-500 mb-1 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 341 216 6555</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-brand-600 mb-6 flex-grow">Ubicacion del Psiquiatra</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1870.0345579524476!2d-103.46585360256783!3d19.719520842388118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f86b25eafdadb%3A0x96743b0a5f2965eb!2sC.%20Fray%20Pedro%20de%20Gante%2051%2C%20Cd%20Guzm%C3%A1n%20Centro%2C%2049000%20Cdad.%20Guzm%C3%A1n%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1795316773539!5m2!1ses-419!2smx" width="320" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+
+                <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Yenny Zúñiga Muñoz</h3>
+                            <p class="text-sm text-brand-500">Psicóloga</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">Zapotiltic, Centro</span>
+                    </div>
+                    <p class="text-sm text-brand-600 mb-6 flex-grow">Psicóloga centrada en soluciones.</p>
+                    <div class="border-t border-gray-100 pt-4 mt-auto">
+                        <p class="text-sm text-gray-500 mb-1 flex items-center gap-2"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 341 330 4966</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-brand-600 mb-6 flex-grow">Ubicacion de la Psicóloga.</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7516.041454879811!2d-103.42823163022464!3d19.626411599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8f4657667481%3A0x408b4062f634b4e0!2zUHNpY8OzbG9nYSBZZW5ueSBaw7rDsWlnYSBNdcOxb3o!5e0!3m2!1ses-419!2smx!4v1795317047442!5m2!1ses-419!2smx" width="320" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ubicacion" class="content-section">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Centro de Atención</span>
+                <h1 class="mt-3 text-4xl md:text-5xl font-bold text-brand-900 tracking-tight">UBICACION DE CENTROS DE SALUD</h1>
+                <p class="mt-6 text-lg text-brand-600 max-w-2xl mx-auto leading-relaxed">
+                    Centros de salud, Zapotiltic, Jalisco.
+                </p>
+            </div>
+
+            <div class="card-white overflow-hidden rounded-3xl">
+
+                <div class="w-full h-[400px] md:h-[500px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.4873290264414!2d-103.41463184127807!3d19.629464500000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8fb53b2cf079%3A0x5082f7fbb48c227d!2sInstituto%20de%20la%20Mujer!5e0!3m2!1ses-419!2smx!4v1795314233055!5m2!1ses-419!2smx" width="900" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+                <div class="p-6 bg-white border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <h4 class="font-bold text-brand-900">Instituto de la Mujer</h4>
+                        <p class="text-sm text-brand-500">Zapotiltic, Jalisco, México.</p>
+                    </div>
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.4873290264414!2d-103.41463184127807!3d19.629464500000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8fb53b2cf079%3A0x5082f7fbb48c227d!2sInstituto%20de%20la%20Mujer!5e0!3m2!1ses-419!2smx!4v1795314233055!5m2!1ses-419!2smx" target="_blank" class="px-6 py-2 bg-brand-900 text-white rounded-full text-sm font-medium hover:bg-brand-800 transition-colors">
+                        Abrir en Google Maps
+                    </a>
+                </div>
+            </div>
+            <div class="card-white overflow-hidden rounded-3xl">
+
+                <div class="w-full h-[400px] md:h-[500px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.5125820887773!2d-103.41519234127807!3d19.625146000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8f7b0647d5ed%3A0xb803c9120f5f449e!2sDesarrollo%20Integral%20de%20la%20Familia%20Dif!5e0!3m2!1ses-419!2smx!4v1795314456298!5m2!1ses-419!2smx" width="900" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+                <div class="p-6 bg-white border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <h4 class="font-bold text-brand-900">Desarrollo integral de la familia (DIF)</h4>
+                        <p class="text-sm text-brand-500">Zapotiltic, Jalisco, México.</p>
+                    </div>
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.5125820887773!2d-103.41519234127807!3d19.625146000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8f7b0647d5ed%3A0xb803c9120f5f449e!2sDesarrollo%20Integral%20de%20la%20Familia%20Dif!5e0!3m2!1ses-419!2smx!4v1795314456298!5m2!1ses-419!2smx" target="_blank" class="px-6 py-2 bg-brand-900 text-white rounded-full text-sm font-medium hover:bg-brand-800 transition-colors">
+                        Abrir en Google Maps
+                    </a>
+                </div>
+            </div>
+            <div class="card-white overflow-hidden rounded-3xl">
+
+                <div class="w-full h-[400px] md:h-[500px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.482055529852!2d-103.42243444127807!3d19.630366200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8f604b3cc963%3A0x25526625895de363!2sCentro%20De%20Salud%20Urbano%20Zapotiltic!5e0!3m2!1ses-419!2smx!4v1795314887747!5m2!1ses-419!2smx" width="900" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+                <div class="p-6 bg-white border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <h4 class="font-bold text-brand-900">Centro de Salud Hurbano de Zapotiltic</h4>
+                        <p class="text-sm text-brand-500">Zapotiltic, Jalisco, México.</p>
+                    </div>
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d939.482055529852!2d-103.42243444127807!3d19.630366200000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f8f604b3cc963%3A0x25526625895de363!2sCentro%20De%20Salud%20Urbano%20Zapotiltic!5e0!3m2!1ses-419!2smx!4v1795314887747!5m2!1ses-419!2smx" target="_blank" class="px-6 py-2 bg-brand-900 text-white rounded-full text-sm font-medium hover:bg-brand-800 transition-colors">
+                        Abrir en Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="creadores" class="content-section hidden">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Fotos</span>
+                <h1 class="mt-3 text-4xl md:text-5xl font-bold text-brand-900 tracking-tight">COMPAÑEROS DEL EQUIPO</h1>
+                <p class="mt-6 text-lg text-brand-600 max-w-2xl mx-auto leading-relaxed">
+                    Todos nosotros ayudamos en cada parye del proyecto, apoyandonos unos a otros.
+                </p>
+            </div>
+            <center><p class="mt-6 text-lg text-brand-600 max-w-2xl mx-auto leading-relaxed">
+                Alumnos creadores de la pagina.
+            </p></center>
+
+            <br>
+            <br>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Alejandra Karina villalvazo Vázquez</h3>
+                            <p class="text-sm text-brand-500">Alumna</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">CECYTE Zapotiltic</span>
+                    </div>
+                    <img src="img/img1.jpg" width="200" height="250">
+            </div>
+
+            <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Mayra Karina Nazario Guillén</h3>
+                            <p class="text-sm text-brand-500">Alumna</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">CECYTE Zapotiltic</span>
+                    </div>
+                    <img src="img/img2.jpg" width="200" height="250">
+            </div>
+
+            <div class="card-white p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-900">Jimena Parra González</h3>
+                            <p class="text-sm text-brand-500">Alumna</p>
+                        </div>
+                        <span class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded-full font-medium">CECYTE Zapotiltic</span>
+                    </div>
+                    <img src="img/img3.jpg" width="200" height="250">
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-100 bg-white mt-12 py-8 text-center text-sm text-gray-400">
+        <p>Este sitio es meramente informativo. Si te encuentras en una crisis, por favor contacta a la línea de emergencia local.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active', 'text-brand-900', 'font-semibold', 'border-b-2', 'border-brand-900');
+                link.classList.add('text-brand-500');
+            });
+
+            const activeDesktop = document.getElementById('nav-' + sectionId);
+            const activeMobile = document.getElementById('nav-' + sectionId + '-mob');
+
+            if (activeDesktop) {
+                activeDesktop.classList.remove('text-brand-500');
+                activeDesktop.classList.add('active');
+            }
+            if (activeMobile) {
+                activeMobile.classList.remove('text-brand-500');
+                activeMobile.classList.add('active');
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
