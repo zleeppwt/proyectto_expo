@@ -1,1 +1,0 @@
-# proyectto_expo
